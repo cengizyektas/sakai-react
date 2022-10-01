@@ -29,10 +29,10 @@ import InvalidStateDemo from './components/InvalidStateDemo';
 import BlocksDemo from './components/BlocksDemo';
 import IconsDemo from './components/IconsDemo';
 
-import Crud from './pages/Crud';
-import EmptyPage from './pages/EmptyPage';
+import Category from './pages/Category';
 import TimelineDemo from './pages/TimelineDemo';
-
+import Products from './pages/Products';
+import Login from './pages/Login';
 import PrimeReact from 'primereact/api';
 import { Tooltip } from 'primereact/tooltip';
 
@@ -199,9 +199,9 @@ const App = () => {
         {
             label: 'Pages', icon: 'pi pi-fw pi-clone',
             items: [
-                { label: 'Crud', icon: 'pi pi-fw pi-user-edit', to: '/crud' },
+                { label: 'Kategori İşlemleri', icon: 'pi pi-fw pi-user-edit', to: '/category' },
+                { label: 'Ürün İşlemleri', icon: 'pi pi-fw pi-shopping-bag', to: '/products' },
                 { label: 'Timeline', icon: 'pi pi-fw pi-calendar', to: '/timeline' },
-                { label: 'Empty', icon: 'pi pi-fw pi-circle-off', to: '/empty' }
             ]
         },
         {
@@ -316,9 +316,10 @@ const App = () => {
                     <Route path="/chart" render={() => <ChartDemo colorMode={layoutColorMode} location={location} />} />
                     <Route path="/misc" component={MiscDemo} />
                     <Route path="/timeline" component={TimelineDemo} />
-                    <Route path="/crud" component={Crud} />
-                    <Route path="/empty" component={EmptyPage} />
+                    <Route path="/category" component={Category} />
+                    <Route path="/products" component={Products} />
                     <Route path="/documentation" component={Documentation} />
+                    <Route path="/login" component={Login} />
                 </div>
 
                 <AppFooter layoutColorMode={layoutColorMode} />

@@ -100,7 +100,7 @@ const MediaDemo = () => {
             <div className="col-12">
                 <div className="card">
                     <h5>Image</h5>
-                    <div className="flex justify-content-center">
+                    <div className="flex ">
                         <Image src="assets/demo/images/galleria/galleria11.jpg" alt="galleria" width={250} preview />
                     </div>
                 </div>

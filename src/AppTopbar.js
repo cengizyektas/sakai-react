@@ -26,7 +26,7 @@ export const AppTopbar = (props) => {
             <button type="button" className="p-link  layout-menu-button layout-topbar-button" onClick={props.onToggleMenuClick}>
                 <i className="pi pi-bars"/>
             </button>
-            <div className="flex align-items-center flex-wrap">
+            {/* <div className="flex align-items-center flex-wrap">
             <Link to="/" className="p-link  layout-menu-button layout-topbar-button">
                 <i className="custom-target-icon pi pi-home p-text-secondary p-overlay-badge" data-pr-tooltip="Anasayfa" data-pr-position="left+2 top " data-pr-my="top" style={{ fontSize: '2rem', cursor: 'pointer' }}>
                 </i>
@@ -47,7 +47,7 @@ export const AppTopbar = (props) => {
                 <i className="pi pi-shopping-bag p-text-secondary p-overlay-badge" data-pr-tooltip="Sipariş İşlemleri" data-pr-position="left+2 top "  data-pr-my="top" style={{ fontSize: '2rem', cursor: 'pointer' }}>
                 </i>
 
-            </Link>
+            </Link> */}
 
 
 

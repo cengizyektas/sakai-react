@@ -4,14 +4,14 @@ import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import { Password } from 'primereact/password';
 import { Toast } from 'primereact/toast';
-
-
-
+import App from '../App';
 import './FormDemo.css';
-const Login = () => {
 
+const Login = () => {
+    
     const toast = useRef(null);
     const [kullaniciAdi, setKullaniciAdi] = useState();
+    const [login,setLogin] = useState(false)
     const [parola, setParola] = useState();
 
     let kAdi = "egçteknik";
@@ -20,7 +20,7 @@ const Login = () => {
     console.log("parola", parola);
     const girisControl = () => {
         if (kullaniciAdi == kAdi && parola == sifre) {
-            console.log(parola, "parolaparola");
+            setLogin(true)
         }else {
             toast.current.show({ severity: 'error', summary: 'Kullanıcı Adı veya Parola Yanlış !', detail: 'HATA', life: 3000 });
 
@@ -35,6 +35,7 @@ const Login = () => {
     return (
         <div className="form-demo">
             <Toast ref={toast} />
+            
 
             <div className="flex justify-content-center  align-items-center">
                 <div className="card p-fluid">

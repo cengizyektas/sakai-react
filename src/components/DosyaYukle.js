@@ -78,7 +78,7 @@ function DosyaYukleme(props) {
                 }
                 {uploadButton}
                 {cancelButton}
-                <ProgressBar value={value} displayValueTemplate={() => `${formatedValue} / 20 MB`} style={{ width: '300px', height: '20px', marginLeft: 'auto' }} />
+                {/* <ProgressBar value={value} displayValueTemplate={() => `${formatedValue} / 20 MB`} style={{ width: '300px', height: '20px', marginLeft: 'auto' }} /> */}
             </div>
         );
     }
@@ -144,7 +144,7 @@ function DosyaYukleme(props) {
         )
     }
 
-    const chooseOptions = { icon: 'pi pi-fw pi-images', iconOnly: true, className: 'custom-choose-btn p-button-rounded p-button-outlined' };
+    const chooseOptions = {  icon: 'pi pi-fw pi-images', iconOnly: true, className: 'custom-choose-btn p-button-rounded p-button-outlined' };
     const uploadOptions = { icon: 'pi pi-fw pi-cloud-upload', iconOnly: true, className: 'custom-upload-btn p-button-success p-button-rounded p-button-outlined' };
     const cancelOptions = { icon: 'pi pi-fw pi-times', iconOnly: true, className: 'custom-cancel-btn p-button-danger p-button-rounded p-button-outlined' };
     // endregion
@@ -202,7 +202,7 @@ function DosyaYukleme(props) {
         axios.post(`http://test.cengizyektas.com/Product/DeleteImage?imageId=${imageId}`).then((response) => {
             console.log("response SİLLLLLLLLLLLL",response);
             _dosyaListele();
-            toast.current.show({ severity: "success", summary: 'İşlem Başarılı', detail: 'Dosya Silindi.', life: 3000 });
+            toast.current.show({ severity: "success", summary: 'İşlem Başarılı', detail: 'Resim Silindi.', life: 3000 });
 
             // setProductList(response?.data?.data)
 
@@ -358,7 +358,7 @@ function DosyaYukleme(props) {
 
                     <div className='dosya-yukleme' style={{ marginTop: "1rem" }}>
 
-                        <Tooltip target=".custom-choose-btn" content="Dosya Seç" position="bottom" className='blue-tooltip' disabled={totalSize > 0} />
+                        <Tooltip style={{witdh:"100rem"}} target=".custom-choose-btn" content="Dosya Seç" position="bottom" className='blue-tooltip' disabled={totalSize > 0} />
                         <Tooltip target=".custom-upload-btn" content="Dosya Yükle" position="bottom" className='blue-tooltip' />
                         <Tooltip target=".custom-cancel-btn" content="Dosya Temizle" position="bottom" className='blue-tooltip' />
 
@@ -418,10 +418,11 @@ function DosyaYukleme(props) {
             }
 
 
-            <ol className="tt-list-group">
+            <div className="card">
                 {
                     dosyaListesi?.map((dosya) => (
-                        <li className="tt-list-group-item">
+                        <div className="p-fluid grid formgrid">
+                            
                             {
                                 listeDosyaSil
                                     ?
@@ -439,14 +440,14 @@ function DosyaYukleme(props) {
                             <span
 
                                 // onClick={() => getFileDownloadUrl(dosya.dkmnid, dosya.dsyad, dosya.contentType)}
-                                style={{ flexGrow: 2, cursor: 'pointer', padding: '5px 0' }}>
-                                <img src={dosya.name} className="shadow-2" width="100" />
+                                style={{ flexGrow: 0, cursor: 'pointer', padding: '5px 0' }}>
+                                <img src={dosya.name} className="shadow-2" width="150"  />
                             </span>
-                        </li>
+                        </div>
                     ))
                 }
 
-            </ol>
+            </div>
         </>
 
     );

@@ -114,27 +114,23 @@ const Dashboard = (props) => {
     }, []);
 
     useEffect(() => {
-        axios.get(`http://test.cengizyektas.com/Dashboard/GetAlarmStok?alarmsiniri=${5}`).then((response) => {
+        axios.get(`http://api.egcteknik.com.tr/Dashboard/GetAlarmStok?alarmsiniri=${5}`).then((response) => {
             setAzalanStok(response?.data?.data)
         })
     }, [])
     useEffect(() => {
-        axios.get(`http://test.cengizyektas.com/Dashboard/GetLastProdut?adet=${15}`).then((response) => {
-            // http://test.cengizyektas.com/Dashboard/GetLastProdut?adet=15'
+        axios.get(`http://api.egcteknik.com.tr/Dashboard/GetLastProdut?adet=${15}`).then((response) => {
             console.log("response2", response);
             setSonSatilanlar(response?.data?.data)
         })
     }, [])
     useEffect(() => {
-        axios.get("http://test.cengizyektas.com/Dashboard/GetOrder").then((response) => {
-            // http://test.cengizyektas.com/Dashboard/GetLastProdut?adet=15'
-            console.log("setOrder", response);
+        axios.get("http://api.egcteknik.com.tr/Dashboard/GetOrder").then((response) => {
             setOrder(response?.data?.data)
         })
     }, [])
     useEffect(() => {
-        axios.get(`http://test.cengizyektas.com/Dashboard/GetEnCokSatanUrunler?sayi=${10}`).then((response) => {
-            // http://test.cengizyektas.com/Dashboard/GetLastProdut?adet=15'
+        axios.get(`http://api.egcteknik.com.tr/Dashboard/GetEnCokSatanUrunler?sayi=${10}`).then((response) => {
             console.log("response2", response);
             setEnCokSatan(response?.data?.data)
         })

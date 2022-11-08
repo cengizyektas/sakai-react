@@ -52,7 +52,7 @@ const Category = () => {
 
     
     useEffect(() => {
-        axios.get("http://test.cengizyektas.com/Category/GetCategoryList").then((response) => {
+        axios.get("http://api.egcteknik.com.tr/Category/GetCategoryList").then((response) => {
             setCategoryList(response?.data?.data?.categories)
             console.log("res1", response);
         })
@@ -85,7 +85,7 @@ const Category = () => {
                 picture: "Test Picture"
             }
 
-            axios.post("http://test.cengizyektas.com/Category/AddCategory", addCategory).then((response) => {
+            axios.post("http://api.egcteknik.com.tr/Category/AddCategory", addCategory).then((response) => {
                 // setCategoryList(response?.data?.data?.categories)
                 console.log("res12r4", response);
                 if(response.status == 200){
@@ -103,7 +103,7 @@ const Category = () => {
                 picture: "Test Picture"
             }
 
-            axios.post("http://test.cengizyektas.com/Category/UpadateCategory", updateCategory).then((response) => {
+            axios.post("http://api.egcteknik.com.tr/Category/UpadateCategory", updateCategory).then((response) => {
                 // setCategoryList(response?.data?.data?.categories)
                 console.log("UPDATEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE", response);
                 if(response.status == 200){

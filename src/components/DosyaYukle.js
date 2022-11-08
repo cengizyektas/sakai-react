@@ -162,7 +162,7 @@ function DosyaYukleme(props) {
 
     const _dosyaListele = () => {
         console.log("productId _dosyaListele", productId);
-        axios.get(`http://test.cengizyektas.com/Product/GetImage?ProductId=${productId}`).then((response) => {
+        axios.get(`http://api.egcteknik.com.tr/Product/GetImage?ProductId=${productId}`).then((response) => {
             // setCategoryList(response?.data?.data?.categories)
             console.log("res dosya LİSTELEEEEEE", response);
 
@@ -199,7 +199,7 @@ function DosyaYukleme(props) {
         //     await _dosyaListele();
         //     toast.current.show({ severity: "success", summary: 'İşlem Başarılı', detail: 'Dosya Silindi.', life: 3000 });
         // })
-        axios.post(`http://test.cengizyektas.com/Product/DeleteImage?imageId=${imageId}`).then((response) => {
+        axios.post(`http://api.egcteknik.com.tr/Product/DeleteImage?imageId=${imageId}`).then((response) => {
             console.log("response SİLLLLLLLLLLLL",response);
             _dosyaListele();
             toast.current.show({ severity: "success", summary: 'İşlem Başarılı', detail: 'Resim Silindi.', life: 3000 });
@@ -246,7 +246,7 @@ function DosyaYukleme(props) {
             console.log("dosya//", dosyaYukleniyor)
 
 
-            axios.post("http://test.cengizyektas.com/Product/AddImage", dosyaYukleniyor).then((response) => {
+            axios.post("http://api.egcteknik.com.tr/Product/AddImage", dosyaYukleniyor).then((response) => {
                 // setCategoryList(response?.data?.data?.categories)
                 console.log("res dosya yukle", response);
                 _dosyaListele(); // dosya listele fonksiyonunu yeniden yükle

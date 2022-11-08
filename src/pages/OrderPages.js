@@ -89,7 +89,7 @@ const OrderPages = () => {
 
     useEffect(() => {
         console.log("istek atıyor mu ????????????????????????????????????????");
-        axios.get(`http://test.cengizyektas.com/Orders/GetOrderList?now=${todayDate}`).then((response) => {
+        axios.get(`http://api.egcteknik.com.tr/Orders/GetOrderList?now=${todayDate}`).then((response) => {
             console.log("response2", response);
             setOrders(response?.data?.data)
 
@@ -324,7 +324,7 @@ const OrderPages = () => {
         console.log("kapat dialog1");
         console.log("kayit124");
         if (customer.orderedId !== null) {
-            axios.put("http://test.cengizyektas.com/Orders/UpdateOrdered", customer).then((res) => {
+            axios.put("http://api.egcteknik.com.tr/Orders/UpdateOrdered", customer).then((res) => {
                 console.log("resgt", res);
                 if (res?.status === 200) {
                     toast.current.show({ severity: 'success', summary: 'BAŞARILI', detail: 'Kayıt Güncellendi', life: 3000 });
@@ -345,7 +345,7 @@ const OrderPages = () => {
         console.log("kapat dialog1");
         console.log("1111111111111111111111111111111111111111111111111");
         if (order.orderId !== null) {
-            axios.put("http://test.cengizyektas.com/Orders/UpdateOrder", order).then((res) => {
+            axios.put("http://api.egcteknik.com.tr/Orders/UpdateOrder", order).then((res) => {
                 console.log("order Response", res);
                 if (res?.status === 200) {
                     toast.current.show({ severity: 'success', summary: 'BAŞARILI1', detail: 'Kayıt Güncellendi', life: 3000 });

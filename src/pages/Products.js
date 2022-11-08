@@ -80,7 +80,7 @@ const Products = () => {
 
 
     useEffect(() => {
-        axios.get("http://test.cengizyektas.com/Category/GetCategoryList").then((response) => {
+        axios.get("http://api.egcteknik.com.tr/Category/GetCategoryList").then((response) => {
             setCategoryList(response?.data?.data?.categories)
             console.log("res1222", response);
         })
@@ -88,7 +88,7 @@ const Products = () => {
 
     useEffect(() => {
         console.log("YENİLENDİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİİ");
-        axios.get("http://test.cengizyektas.com/Product/GetProductList").then((response) => {
+        axios.get("http://api.egcteknik.com.tr/Product/GetProductList").then((response) => {
             setProductList(response?.data?.data)
             console.log("ressafa1222", response);
         })
@@ -178,7 +178,7 @@ const Products = () => {
 
                 }
                 console.log("UPDATEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-                axios.post("http://test.cengizyektas.com/Product/UpdateProduct", updateProduct).then((response) => {
+                axios.post("http://api.egcteknik.com.tr/Product/UpdateProduct", updateProduct).then((response) => {
                     // setProductList(response?.data?.data)7
                     console.log("update oldu mu ", response);
                     toast.current.show({ severity: 'success', summary: 'Başarılı', detail: 'Ürün Başarılı Şekilde Güncellendi', life: 3000 });
@@ -187,7 +187,7 @@ const Products = () => {
                 })
             }
             else {
-                axios.post("http://test.cengizyektas.com/Product/AddProduct", addProduct).then((response) => {
+                axios.post("http://api.egcteknik.com.tr/Product/AddProduct", addProduct).then((response) => {
                     // setProductList(response?.data?.data.productId)
                     if (response.status == 200) {
                         console.log("respons222e", response);
@@ -280,6 +280,15 @@ const Products = () => {
 
     }
 
+    const imageBodyTemplate = (rowData) => {
+        return (
+            <>
+                {/* <span className="p-column-title">Image</span> */}
+                <img src={rowData.picture} className="shadow-1 round"  style={{ borderRadius: '27px'}} width="50" />
+            </>
+        )
+    }
+
     const leftToolbarTemplate = () => {
         return (
             <React.Fragment>
@@ -294,15 +303,7 @@ const Products = () => {
 
 
 
-    const imageBodyTemplate = (rowData) => {
-        return (
-            <>
-                {/* <span className="p-column-title">Image</span> */}
-                <img src={rowData.picture} className="shadow-2" width="100" />
-            </>
-        )
-    }
-
+  
     const aciklamaTemplate = (rowData) => {
         return (
             <>
@@ -399,13 +400,14 @@ const Products = () => {
                         currentPageReportTemplate="Gösterilen ürün {first} ile {last} arasında, toplam ürün sayısı : {totalRecords} "
                         globalFilter={globalFilter} emptyMessage="Ürün bulunamamıştır." header={header} responsiveLayout="scroll">
                         <Column field="productId" header="Ürün Id" style={{ width: '5rem' }} body={(e) => e.productId}></Column>
-                        <Column field="productName" header="Ürün Adı" style={{ minWidth: '30rem' }} body={(e) => e.productName}></Column>
-                        {/* <Column field="productName" header="Kategori Adı" style={{ width: '5rem' }} body={(e) => e.categoryId}></Column> */}
                         <Column header="Resim" style={{ width: '10rem' }} body={imageBodyTemplate}></Column>
-                        <Column field="basePrice" header="Alış Fiyat" style={{ width: '5rem' }} sortable body={(e) => e.basePrice}></Column>
+                        <Column field="productName" header="Ürün Adı" style={{ minWidth: '30rem' }} body={(e) => e.productName}></Column>
+                        <Column field="quantityPerUnit" header="Stok" style={{ width: '5rem' }} sortable body={(e) => e.quantityPerUnit}></Column>
+                        {/* <Column field="productName" header="Kategori Adı" style={{ width: '5rem' }} body={(e) => e.categoryId}></Column> */}
                         <Column field="unitPrice" header="Satış Fiyat" style={{ width: '5rem' }} sortable body={(e) => e.unitPrice}></Column>
                         <Column field="purchasePrice" header="$ Karşılığı" style={{ width: '5rem' }} sortable body={(e) => e.purchasePrice}></Column>
-                        <Column field="quantityPerUnit" header="Stok" style={{ width: '5rem' }} sortable body={(e) => e.quantityPerUnit}></Column>
+                       <Column field="basePrice" header="Alış Fiyat" style={{ width: '5rem' }} sortable body={(e) => e.basePrice}></Column>
+                        
                         {/* <Column field="stock_code" header="Stok Kodu" style={{ width: '5rem' }} body={(e) => e.stock_code}></Column> */}
                         <Column field="barcode" header="Barcode" style={{ minWiwidthdth: '5rem' }} body={(e) => e.barcode}></Column>
                         <Column field="platform" header="Platform Id" style={{ width: '5rem' }} body={(e) => e.process_id}></Column>
